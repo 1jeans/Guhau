@@ -1,0 +1,520 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <title>GuHaeU</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="/guhau/asset/css/custom-bs.css">
+    <link rel="stylesheet" href="/guhau/asset/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/guhau/asset/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/guhau/asset/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="/guhau/asset/fonts/line-icons/style.css">
+    <link rel="stylesheet" href="/guhau/asset/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/guhau/asset/css/animate.min.css">
+    <link rel="stylesheet" href="/guhau/asset/css/quill.snow.css">
+    
+    
+    
+    
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/guhau/asset/css/style.css">    
+  </head>
+  <body id="top">
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+    
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+    
+
+    <!-- NAVBAR -->
+  <header class="site-navbar mt-3">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="site-logo col-6"><a href="index.jsp">GuhaeU</a></div>
+
+        <nav class="mx-auto site-navigation">
+          <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
+            <li><a href="index.jsp" class="nav-link active">채용</a></li>
+            <li><a href="about.html">클래스</a></li>
+            <li class="has-children">
+              <a href="job-listings.html">기업리뷰</a>
+              <ul class="dropdown">
+                <li><a href="job-single.html">Job Single</a></li>
+                <li><a href="post_job.jsp">Post a Job</a></li>
+              </ul>
+            </li>
+            <li class="has-children">
+              <a href="class.jsp">커뮤니티</a>
+              <ul class="dropdown">
+                <li><a href="services.html">Services</a></li>
+                <li><a href="service-single.html">Service Single</a></li>
+              </ul>
+            </li>
+            <li class="d-lg-none"><a href="post_job.jsp"><span class="mr-2">+</span> Post a Job</a></li>
+            <li class="d-lg-none"><a href="login.jsp">Log In</a></li>
+          </ul>
+        </nav>
+
+        <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
+          <div class="ml-auto">
+            <a href="post_job.jsp" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>이력서 제출</a>
+            <a href="login.jsp" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>로그인</a>
+          </div>
+          <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+    <!-- HOME -->
+    <section class="section-hero overlay inner-page bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="custom-breadcrumbs mb-0">
+              <span class="slash">Posted by</span> Admin</a> 
+              <span class="mx-2 slash">&bullet;</span>
+              <span class="text-white"><strong>April 15, 2019</strong></span>
+            </div>
+            <h1 class="text-white">전체 커뮤니티</h1>
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+   <!--  <div class="sidebar-box">
+              <div class="categories">
+                <h3>Categories</h3>
+                <input type="button" value="전체" onclick="location.href='/guhau/community/community_all.do'">
+                <li><a href="">전체 <span>(12)</span></a></li>
+                <li><a href="#">자유 <span>(22)</span></a></li>
+                <li><a href="#">회사생활 <span>(37)</span></a></li>
+                <li><a href="#">취업이직 <span>(42)</span></a></li>
+              </div>
+            </div> -->
+            
+	 <div class="sidebar-box">
+              <div class="categories">
+                <h3>Categories</h3>
+                <!-- <form method="POST" action="/community/community_view.do"> -->
+			<table id="Add">
+				<tr>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/community_all.do'">
+							<i class="fa-solid fa-comments"></i>
+							전체
+						</button>
+					</td>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/community_free.do'">
+							<i class="fa-solid fa-comments"></i>
+							자유
+						</button>
+					</td>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/community_company.do'">
+							<i class="fa-solid fa-comments"></i>
+							회사생활
+						</button>
+					</td>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/community_emp.do'">
+							<i class="fa-solid fa-comments"></i>
+							취업이직
+						</button>
+					</td>
+				</tr>
+			</table> 
+			
+			
+                <!-- <li><a href="#">전체 <span>(12)</span></a></li>
+                <li><a href="#">자유 <span>(22)</span></a></li>
+                <li><a href="#">회사생활 <span>(37)</span></a></li>
+                <li><a href="#">취업이직 <span>(42)</span></a></li> -->
+              <hr>
+              
+              <div id="search">
+              	<form method="GET" action="/guhau/community/community_view.do">
+              	<table>
+              		<tr>
+              			<td>             	
+              				<select name="column" id="column">
+              					<option value="comm_title">제목</option>
+              					<option value="comm_txt">내용</option>
+              					<option value="m_name">이름</option>              					             					            					
+              				</select>
+              			</td>
+              			<td>
+              				<input type="text" name="word" id="word" required>
+              			</td>
+              			<td>
+              				<button type="submit">
+								<i class="fa-solid fa-magnifying-glass"></i>
+								검색하기
+							</button>
+							<button type="button" onclick="location.href='/guhau/community/community_view.do';">
+								<i class="fa-solid fa-list"></i>
+								검색취소
+							</button>
+              			</td>
+              		</tr>
+              	</table>
+              	</form>
+              </div>
+              
+              
+                
+             
+     <section class="site-section" id="next-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 blog-content"> 
+          	
+          	<h3>GUHAEU 커뮤니티글</h3>
+          							
+			<table border="1">
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>내용</th>
+					<th>날짜</th>
+					<th>조회수</th>
+					<th>이름</th>					
+				</tr>
+				 <c:forEach items="${list}" var="dto">
+				<tr>  			
+					<td>${dto.comm_seq}</td>	
+					<td><a href="/guhau/community/view.do?comm_seq=${dto.comm_seq}">${dto.comm_title}</a></td>	
+								
+					<%-- <td>${dto.comm_title}</td> --%>
+					<td>${dto.comm_txt}</td>
+					<td>${dto.comm_date}</td>
+					<td>${dto.comm_count}</td>
+					<td>${dto.m_name}</td>						 				
+				</tr>
+				</c:forEach>			
+			</table>
+			
+            <hr>
+            
+			<table id="Add">
+				<tr>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/add.do'">
+							<i class="fa-solid fa-comments"></i>
+							글쓰기
+						</button>
+					</td>
+				</tr>
+			</table>
+
+
+            <div class="pt-5">
+              <ul class="comment-list">
+                <!-- <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_2.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Jacob Smith</h3>
+                    <div class="meta">January 9, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_3.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Chris Meyer</h3>
+                    <div class="meta">January 9, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+
+                  <ul class="children">
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="images/person_5.jpg" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>Chintan Patel</h3>
+                        <div class="meta">January 9, 2018 at 2:21pm</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#" class="reply">Reply</a></p>
+                      </div>
+
+
+                      <ul class="children">
+                        <li class="comment">
+                          <div class="vcard bio">
+                            <img src="images/person_1.jpg" alt="Image placeholder">
+                          </div>
+                          <div class="comment-body">
+                            <h3>Jean Doe</h3>
+                            <div class="meta">January 9, 2018 at 2:21pm</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                            <p><a href="#" class="reply">Reply</a></p>
+                          </div>
+
+                            <ul class="children">
+                              <li class="comment">
+                                <div class="vcard bio">
+                                  <img src="images/person_4.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                  <h3>Ben Afflick</h3>
+                                  <div class="meta">January 9, 2018 at 2:21pm</div>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                  <p><a href="#" class="reply">Reply</a></p>
+                                </div>
+                              </li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Jean Doe</h3>
+                    <div class="meta">January 9, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+              </ul> -->
+              <!-- END comment-list -->
+              
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form action="#" class="">
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn btn-primary btn-md">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+          </div>
+           <div class="col-lg-4 sidebar pl-lg-5">
+            <!-- <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon fa fa-search"></span>
+                  <input type="text" class="form-control form-control-lg" placeholder="Type a keyword and hit enter">
+                </div>
+              </form>
+            </div> -->
+            <div class="sidebar-box">
+              <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4 w-50 rounded-circle">
+              <h3>About The Author</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+              <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
+            </div>
+            
+            <!-- <div class="sidebar-box">
+              <div class="categories">
+                <h3>Categories</h3>               
+                <li><a href="#">전체 <span>(12)</span></a></li>
+                <li><a href="#">자유 <span>(22)</span></a></li>
+                <li><a href="#">회사생활 <span>(37)</span></a></li>
+                <li><a href="#">취업이직 <span>(42)</span></a></li>
+              </div>
+            </div>  -->
+
+             <!-- <div class="sidebar-box">
+              <div class="categories">
+                <h3>Categories</h3>
+                <form method="POST" action="/community/community.do">
+			<table id="Add">
+				<tr>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/community_all.do'">
+							<i class="fa-solid fa-comments"></i>
+							전체
+						</button>
+					</td>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/community_free.do'">
+							<i class="fa-solid fa-comments"></i>
+							자유
+						</button>
+					</td>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/community_company.do'">
+							<i class="fa-solid fa-comments"></i>
+							회사생활
+						</button>
+					</td>
+					<td>
+						<button type="button" onclick="location.href='/guhau/community/community_emp.do'">
+							<i class="fa-solid fa-comments"></i>
+							취업이직
+						</button>
+					</td>
+				</tr>
+			</table>
+			
+			
+                <li><a href="#">전체 <span>(12)</span></a></li>
+                <li><a href="#">자유 <span>(22)</span></a></li>
+                <li><a href="#">회사생활 <span>(37)</span></a></li>
+                <li><a href="#">취업이직 <span>(42)</span></a></li>
+                
+                
+              </div>
+            </div>  -->
+            
+
+            <div class="sidebar-box">
+              <h3>Paragraph</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer class="site-footer">
+
+      <a href="#top" class="smoothscroll scroll-top">
+        <span class="icon-keyboard_arrow_up"></span>
+      </a>
+
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-6 col-md-3 mb-4 mb-md-0">
+            <h3>Search Trending</h3>
+            <ul class="list-unstyled">
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Graphic Design</a></li>
+              <li><a href="#">Web Developers</a></li>
+              <li><a href="#">Python</a></li>
+              <li><a href="#">HTML5</a></li>
+              <li><a href="#">CSS3</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 mb-4 mb-md-0">
+            <h3>Company</h3>
+            <ul class="list-unstyled">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 mb-4 mb-md-0">
+            <h3>Support</h3>
+            <ul class="list-unstyled">
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 mb-4 mb-md-0">
+            <h3>Contact Us</h3>
+            <div class="footer-social">
+              <a href="#"><span class="icon-facebook"></span></a>
+              <a href="#"><span class="icon-twitter"></span></a>
+              <a href="#"><span class="icon-instagram"></span></a>
+              <a href="#"><span class="icon-linkedin"></span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-12">
+            <p class="copyright"><small>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+  </div>
+
+    <!-- SCRIPTS -->
+    <script src="/guhau/asset/js/jquery.min.js"></script>
+    <script src="/guhau/asset/js/bootstrap.bundle.min.js"></script>
+    <script src="/guhau/asset/js/isotope.pkgd.min.js"></script>
+    <script src="/guhau/asset/js/stickyfill.min.js"></script>
+    <script src="/guhau/asset/js/jquery.fancybox.min.js"></script>
+    <script src="/guhau/asset/js/jquery.easing.1.3.js"></script>
+    
+    <script src="/guhau/asset/js/jquery.waypoints.min.js"></script>
+    <script src="/guhau/asset/js/jquery.animateNumber.min.js"></script>
+    <script src="/guhau/asset/js/owl.carousel.min.js"></script>
+    <script src="/guhau/asset/js/quill.min.js"></script>
+    
+    
+    <script src="/guhau/asset/js/bootstrap-select.min.js"></script>
+    
+    <script src="/guhau/asset/js/custom.js"></script>
+   
+   <script>
+   		$('#column').val('${map.column}');
+   		$('#word').val('${map.word}');
+   </script>
+   
+   
+     
+  </body>
+</html>
+
+
+
+
+
+
+
+
